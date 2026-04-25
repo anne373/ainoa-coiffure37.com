@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#FFF7F2] pb-12">
+    <footer className="w-full bg-[#FFF7F2] pb-6">
       <div className="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-[1280px] mx-auto border-t border-zinc-200 gap-8">
         <div className="flex flex-col items-center md:items-start">
           <Image
@@ -36,6 +36,20 @@ export default function Footer() {
             02 47 49 87 29
           </a>
         </div>
+      </div>
+      <div className="text-center pb-6">
+        <a
+          href="https://descodes.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 font-inter text-[11px] text-zinc-400 hover:text-zinc-600 transition-colors tracking-wide"
+        >
+          Site réalisé par
+          <span className="font-bold">
+            <i className="fas fa-code text-[#F54927] mr-0.5" />
+            Des<span className="text-[#F54927]">Codes</span>
+          </span>
+        </a>
       </div>
     </footer>
   )
