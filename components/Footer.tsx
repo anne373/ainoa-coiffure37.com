@@ -1,11 +1,17 @@
+import Image from 'next/image'
+
 export default function Footer() {
   return (
     <footer className="w-full bg-[#FFF7F2] pb-12">
       <div className="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-[1280px] mx-auto border-t border-zinc-200 gap-8">
         <div className="flex flex-col items-center md:items-start">
-          <div className="text-lg font-black text-zinc-900 font-space-grotesk uppercase mb-2">
-            AINOA COIFFURE
-          </div>
+          <Image
+            src="/images/logo-ainoa.png"
+            alt="Ainoa Coiffure"
+            width={130}
+            height={42}
+            className="mix-blend-multiply mb-1"
+          />
           <p className="font-inter text-xs tracking-widest uppercase text-zinc-400">
             © {new Date().getFullYear()} Ainoa Coiffure. Saint-Cyr-sur-Loire.
           </p>
