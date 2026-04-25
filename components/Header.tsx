@@ -55,7 +55,7 @@ export default function Header() {
             href={PLANITY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#F54927] text-white px-6 py-3 rounded-full font-inter text-xs tracking-widest uppercase hover:bg-zinc-900 transition-all duration-200 active:scale-95"
+            className="bg-[#F54927] text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-inter text-[9px] md:text-xs tracking-widest uppercase hover:bg-zinc-900 transition-all duration-200 active:scale-95"
           >
             Prendre RDV
           </a>
