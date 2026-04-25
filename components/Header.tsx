@@ -7,11 +7,11 @@ import Image from 'next/image'
 const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
 const navLinks = [
-  { href: '#accueil', label: 'Accueil' },
-  { href: '#concept', label: 'Salon' },
-  { href: '/head-spa', label: 'Head SPA' },
-  { href: '#creations', label: 'Créations' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/',           label: 'Accueil' },
+  { href: '/#concept',   label: 'Salon' },
+  { href: '/head-spa',   label: 'Head SPA' },
+  { href: '/#creations', label: 'Créations' },
+  { href: '/#contact',   label: 'Contact' },
 ]
 
 export default function Header() {
@@ -21,7 +21,7 @@ export default function Header() {
     <header className="fixed top-0 w-full border-b border-zinc-200/50 bg-[#FFF7F2]/90 backdrop-blur-md z-50">
       <div className="flex justify-between items-center h-20 px-8 max-w-[1280px] mx-auto w-full">
         {/* Logo */}
-        <a href="#accueil">
+        <a href="/">
           <Image
             src="/images/logo-ainoa.png"
             alt="Ainoa Coiffure"
