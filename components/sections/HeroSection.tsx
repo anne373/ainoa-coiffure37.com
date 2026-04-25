@@ -51,8 +51,9 @@ export default function HeroSection() {
         {/* Gradient bas */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10" />
 
-        {/* Contenu texte — bas gauche, taille réduite de 30% */}
-        <div className="relative z-20 px-8 pb-10 text-white">
+        {/* Contenu texte — aligné sur le même axe que les sections sous le hero */}
+        <div className="relative z-20 w-full text-white">
+          <div className="max-w-[1280px] mx-auto px-8 pb-10">
           <div className="max-w-[470px]">
             <span className="text-[#F54927] font-inter font-bold text-[10px] tracking-[0.2em] uppercase mb-3 block">
               01 / CONCEPT
@@ -71,6 +72,7 @@ export default function HeroSection() {
             >
               Prendre Rendez-vous
             </a>
+          </div>
           </div>
         </div>
 
