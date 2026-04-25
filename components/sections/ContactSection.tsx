@@ -23,9 +23,9 @@ export default function ContactSection() {
             </h4>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'Facebook',  href: '#' },
-                { label: 'Instagram', href: '#' },
-                { label: 'Planity',   href: '#' },
+                { label: 'Facebook',  href: 'https://www.facebook.com/p/AINOA-Coiffure-Onglerie-100053444964982/' },
+                { label: 'Instagram', href: 'https://www.instagram.com/ainoa.coiffure37/' },
+                { label: 'Planity',   href: 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire' },
               ].map((social) => (
                 <a
                   key={social.label}

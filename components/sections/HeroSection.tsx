@@ -51,23 +51,23 @@ export default function HeroSection() {
         {/* Gradient bas */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10" />
 
-        {/* Contenu texte */}
-        <div className="relative z-20 w-full max-w-[1280px] mx-auto px-8 pb-28 text-white">
-          <div className="max-w-2xl">
-            <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
+        {/* Contenu texte — bas gauche, taille réduite de 30% */}
+        <div className="relative z-20 px-8 pb-10 text-white">
+          <div className="max-w-[470px]">
+            <span className="text-[#F54927] font-inter font-bold text-[10px] tracking-[0.2em] uppercase mb-3 block">
               01 / CONCEPT
             </span>
-            <h1 className="text-h1 font-space-grotesk font-bold text-white uppercase leading-tight mb-8">
+            <h1 className="text-[45px] leading-[1.1] font-space-grotesk font-bold text-white uppercase mb-5">
               L'art de la coiffure, la passion du soin.
             </h1>
-            <p className="font-inter text-body-lg mb-10 max-w-lg opacity-90">
+            <p className="font-inter text-[13px] leading-relaxed mb-7 opacity-90">
               Bienvenue chez Aïnoa Coiffure, où votre beauté est notre inspiration.
             </p>
             <a
               href={PLANITY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[#F54927] text-white px-10 py-5 rounded-full font-inter text-sm tracking-widest uppercase hover:bg-white hover:text-zinc-900 transition-all"
+              className="inline-block bg-[#F54927] text-white px-7 py-3 rounded-full font-inter text-[10px] tracking-widest uppercase hover:bg-white hover:text-zinc-900 transition-all"
             >
               Prendre Rendez-vous
             </a>
