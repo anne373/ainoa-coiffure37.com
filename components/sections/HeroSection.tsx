@@ -1,29 +1,58 @@
+'use client'
+
 import Image from 'next/image'
+import { useState, useEffect, useCallback } from 'react'
 
 const PLANITY_URL = 'https://www.planity.com' // ← Remplacer par votre URL Planity
 
-// Remplacer par '/images/hero/main.jpg' quand vous avez votre photo
-const HERO_IMAGE =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuCYXp6GSTXZZTpLHHcAyutTIKNMV3oSAt_fr8nrgS75lVA4CdK2CPdH-MVR0IMLCHKqPMOu4MlbDwuCt-yizBczYtxpUcy6tZzsRdTZn9fy6OlljSX7oY7ml6mEzkK7cNqdX3T5ZhpY3rtcDiamSM_Y2L21LMntNddI3KlLriGhsc6Q_DdSDNtuI-FG0xuxi5ZzkTbZZ07qtUeXHh70LjF1pe-zw5eLrQ2kP-1NUwzx_21dzg3NITk65RhvJO29GFdohaehxeMZa2OB'
+const slides = [
+  { src: '/images/hero/hero-ainoa.jpg', alt: 'Ainoa Coiffure' },
+  { src: '/images/hero/image2.png',     alt: 'Intérieur du salon' },
+  { src: '/images/hero/image3.png',     alt: "L'équipe Ainoa Coiffure" },
+  { src: '/images/hero/image4.png',     alt: 'Salon Ainoa Coiffure' },
+  { src: '/images/hero/image5.png',     alt: 'Notre équipe' },
+  { src: '/images/hero/image7.png',     alt: "L'équipe Ainoa" },
+]
 
 export default function HeroSection() {
+  const [current, setCurrent] = useState(0)
+
+  const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), [])
+  const prev = useCallback(() => setCurrent(c => (c - 1 + slides.length) % slides.length), [])
+
+  // Auto-avance toutes les 5 secondes
+  useEffect(() => {
+    const timer = setInterval(next, 5000)
+    return () => clearInterval(timer)
+  }, [next])
+
   return (
     <section id="accueil" className="relative mt-4 mx-4 h-[880px]">
       <div className="relative h-full w-full overflow-hidden rounded-[48px] flex items-end">
-        {/* Image de fond */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={HERO_IMAGE}
-            alt="Salon Ainoa Coiffure"
-            fill
-            priority
-            className="object-cover grayscale brightness-[0.8] contrast-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-        </div>
 
-        {/* Contenu */}
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-8 pb-24 text-white">
+        {/* Slides en fade */}
+        {slides.map((slide, i) => (
+          <div
+            key={slide.src}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              i === current ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              priority={i === 0}
+              className="object-cover brightness-[0.72]"
+            />
+          </div>
+        ))}
+
+        {/* Gradient bas */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10" />
+
+        {/* Contenu texte */}
+        <div className="relative z-20 w-full max-w-[1280px] mx-auto px-8 pb-28 text-white">
           <div className="max-w-2xl">
             <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
               01 / CONCEPT
@@ -44,6 +73,41 @@ export default function HeroSection() {
             </a>
           </div>
         </div>
+
+        {/* Flèche gauche */}
+        <button
+          onClick={prev}
+          aria-label="Précédent"
+          className="absolute left-5 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
+        >
+          <span className="material-symbols-outlined">chevron_left</span>
+        </button>
+
+        {/* Flèche droite */}
+        <button
+          onClick={next}
+          aria-label="Suivant"
+          className="absolute right-5 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
+        >
+          <span className="material-symbols-outlined">chevron_right</span>
+        </button>
+
+        {/* Dots de navigation */}
+        <div className="absolute bottom-9 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Slide ${i + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                i === current
+                  ? 'bg-[#F54927] w-7 h-2'
+                  : 'bg-white/50 hover:bg-white/80 w-2 h-2'
+              }`}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   )

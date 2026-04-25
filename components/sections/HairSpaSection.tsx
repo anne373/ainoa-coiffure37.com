@@ -2,9 +2,7 @@ import Image from 'next/image'
 
 const PLANITY_URL = 'https://www.planity.com' // ← Remplacer par votre URL Planity
 
-// Remplacer par '/images/spa/main.jpg' quand vous avez votre photo
-const SPA_IMAGE =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuDTVnX3fL_IXa9FOX1ozOkJNk8ZBmQ_k_5CwcxQrFoKJaH68GF83bSMToKJLmryDEdGXASLH9WxZ_XQOQbb6DzCw9cr62MGF6DLt1CWqA6vq0sSO_eh7lrm2zI-rPz4uk1dsq6Nbkng5nDRLMK6pSxaVwokG73fz_GqxrooCRokKJOEq7KSeh8U7WXXeTmVct59bfya9qwxOqZ6zlhqFLA4mxRmJAwwjBEHSz0td3oDVywCD7dS0ugFmGBWqRJ-uvrRP2Z0BdbOdAOZ'
+const SPA_IMAGE = '/images/spa/image6.png'
 
 export default function HairSpaSection() {
   return (
