@@ -37,10 +37,20 @@ export default function LocationSection() {
                   <span className="text-[#F54927] font-inter font-bold text-[10px] tracking-[0.2em] uppercase block mb-2">
                     ADRESSE
                   </span>
-                  <p className="font-inter text-body-md text-zinc-300">
-                    44 Bd Charles de Gaulle<br />
-                    37540 Saint-Cyr-sur-Loire
-                  </p>
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=44+Bd+Charles+de+Gaulle,+37540+Saint-Cyr-sur-Loire,+France"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-inter text-body-md text-zinc-300 hover:text-white transition-colors group flex items-start gap-2"
+                  >
+                    <span className="material-symbols-outlined text-[#F54927] text-base mt-0.5 shrink-0 group-hover:scale-110 transition-transform">
+                      near_me
+                    </span>
+                    <span>
+                      44 Bd Charles de Gaulle<br />
+                      37540 Saint-Cyr-sur-Loire
+                    </span>
+                  </a>
                 </div>
                 <div>
                   <span className="text-[#F54927] font-inter font-bold text-[10px] tracking-[0.2em] uppercase block mb-2">
