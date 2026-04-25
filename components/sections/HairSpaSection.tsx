@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
@@ -63,14 +64,12 @@ export default function HairSpaSection() {
                   </div>
                 </div>
               </div>
-              <a
-                href={PLANITY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/head-spa"
                 className="inline-block bg-[#F54927] text-white px-10 py-5 rounded-full font-inter text-sm tracking-widest uppercase hover:bg-zinc-900 transition-all"
               >
                 DÉCOUVRIR LE SPA
-              </a>
+              </Link>
             </div>
           </div>
 

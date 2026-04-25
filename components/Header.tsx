@@ -9,7 +9,7 @@ const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 const navLinks = [
   { href: '#accueil', label: 'Accueil' },
   { href: '#concept', label: 'Salon' },
-  { href: '#spa', label: 'Head SPA' },
+  { href: '/head-spa', label: 'Head SPA' },
   { href: '#creations', label: 'Créations' },
   { href: '#contact', label: 'Contact' },
 ]
