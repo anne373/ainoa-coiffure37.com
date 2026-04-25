@@ -1,14 +1,30 @@
+'use client'
+
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 const PLANITY_URL = 'https://www.planity.com' // ← Remplacer par votre URL Planity
 
-const SPA_IMAGE = '/images/spa/image6.png'
+const SPA_IMAGES = [
+  { src: '/images/spa/image6.png',       alt: 'Soin du cuir chevelu' },
+  { src: '/images/spa/head%20spa.png',   alt: 'Cabine Head Spa' },
+]
 
 export default function HairSpaSection() {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(c => (c + 1) % SPA_IMAGES.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section id="spa" className="py-[120px] bg-[#FFF7F2]">
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+
           {/* Texte */}
           <div className="col-span-12 md:col-span-6 flex flex-col justify-center">
             <div className="max-w-xl">
@@ -58,15 +74,43 @@ export default function HairSpaSection() {
             </div>
           </div>
 
-          {/* Image */}
+          {/* Images avec crossfade + blur */}
           <div className="col-span-12 md:col-span-6 relative h-[500px] md:h-[600px] overflow-hidden rounded-[48px]">
-            <Image
-              src={SPA_IMAGE}
-              alt="Head Spa Ainoa Coiffure"
-              fill
-              className="object-cover transition-transform duration-[3000ms] hover:scale-110"
-            />
+            {SPA_IMAGES.map((img, i) => (
+              <div
+                key={img.src}
+                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                  i === current
+                    ? 'opacity-100 blur-none scale-100'
+                    : 'opacity-0 blur-md scale-105'
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ))}
+
+            {/* Dots indicateurs */}
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+              {SPA_IMAGES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  aria-label={`Photo ${i + 1}`}
+                  className={`rounded-full transition-all duration-300 ${
+                    i === current
+                      ? 'bg-white w-6 h-2'
+                      : 'bg-white/40 hover:bg-white/70 w-2 h-2'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </section>
