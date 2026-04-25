@@ -19,24 +19,6 @@ export default function ConceptSection() {
             Notre équipe passionnée met son expertise au service de votre beauté, avec des
             techniques modernes et des produits de qualité soigneusement sélectionnés.
           </p>
-          <div className="grid grid-cols-2 gap-8 border-t border-zinc-200 pt-10">
-            <div>
-              <span className="text-[20px] sm:text-[24px] md:text-h3 font-space-grotesk font-semibold block mb-2 text-zinc-900">
-                15 ans
-              </span>
-              <span className="font-inter text-label-caps text-zinc-400 uppercase tracking-widest">
-                D'expérience
-              </span>
-            </div>
-            <div>
-              <span className="text-[20px] sm:text-[24px] md:text-h3 font-space-grotesk font-semibold block mb-2 text-zinc-900">
-                100%
-              </span>
-              <span className="font-inter text-label-caps text-zinc-400 uppercase tracking-widest">
-                Passion
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
