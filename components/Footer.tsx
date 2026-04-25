@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
       <div className="text-center pb-6">
         <a
-          href="https://descodes.net"
+          href="https://descodes.com"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 font-inter text-[11px] text-zinc-400 hover:text-zinc-600 transition-colors tracking-wide"
