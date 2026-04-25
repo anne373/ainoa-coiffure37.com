@@ -9,10 +9,10 @@ const images = {
 
 export default function PortfolioSection() {
   return (
-    <section id="creations" className="py-[120px] bg-[#FFF7F2]">
-      <div className="bg-zinc-200/30 rounded-[48px] py-20 px-8 max-w-[1280px] mx-auto">
+    <section id="creations" className="py-12 md:py-[80px] bg-[#FFF7F2]">
+      <div className="bg-zinc-200/30 rounded-[48px] py-10 md:py-20 px-8 max-w-[1280px] mx-auto">
         {/* En-tête */}
-        <div className="mb-16">
+        <div className="mb-8 md:mb-16">
           <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
             03 / PORTFOLIO
           </span>

@@ -88,7 +88,7 @@ export default function HeroSection() {
       </div>
 
       {/* Texte sous le carousel */}
-      <div className="max-w-[1280px] mx-auto px-4 pt-8 pb-2">
+      <div className="max-w-[1280px] mx-auto px-4 pt-5 pb-2">
         <h1 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[45px] leading-[1.1] font-space-grotesk font-bold text-zinc-900 uppercase mb-4">
           L'art de la coiffure, la passion du soin.
         </h1>

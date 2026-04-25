@@ -1,8 +1,8 @@
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-[120px] bg-[#FFF7F2] border-t border-zinc-200/50">
+    <section id="contact" className="py-12 md:py-[80px] bg-[#FFF7F2] border-t border-zinc-200/50">
       <div className="max-w-[1280px] mx-auto px-8">
-        <div className="mb-16">
+        <div className="mb-8 md:mb-16">
           <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
             04 / CONTACT
           </span>

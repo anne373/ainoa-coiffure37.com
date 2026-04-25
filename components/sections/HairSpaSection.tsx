@@ -22,7 +22,7 @@ export default function HairSpaSection() {
   }, [])
 
   return (
-    <section id="spa" className="py-[120px] bg-[#FFF7F2]">
+    <section id="spa" className="py-12 md:py-[80px] bg-[#FFF7F2]">
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
 
