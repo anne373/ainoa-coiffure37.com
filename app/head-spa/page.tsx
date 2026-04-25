@@ -60,7 +60,7 @@ export default function HeadSpaPage() {
               <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-3 block">
                 02 / DÉTENTE
               </span>
-              <h1 className="text-h1 font-space-grotesk font-bold uppercase leading-tight mb-4">
+              <h1 className="text-[26px] sm:text-[34px] md:text-[44px] lg:text-h1 leading-tight font-space-grotesk font-bold uppercase mb-4">
                 Head Spa
               </h1>
               <p className="font-inter text-body-lg opacity-90 max-w-xl">
@@ -74,7 +74,7 @@ export default function HeadSpaPage() {
         <section className="py-20 max-w-[1280px] mx-auto px-8">
           <div className="grid grid-cols-12 gap-6 items-start">
             <div className="col-span-12 md:col-span-5">
-              <h2 className="text-h2 font-space-grotesk font-semibold uppercase text-zinc-900">
+              <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-zinc-900">
                 Nos Soins
               </h2>
             </div>
@@ -109,7 +109,7 @@ export default function HeadSpaPage() {
                           {service.number} / SOIN
                         </span>
                       </div>
-                      <h3 className="text-h3 font-space-grotesk font-semibold uppercase text-zinc-900 mb-4">
+                      <h3 className="text-[18px] sm:text-[22px] md:text-h3 font-space-grotesk font-semibold uppercase text-zinc-900 mb-4">
                         {service.name}
                       </h3>
                       {service.note && (
@@ -160,7 +160,7 @@ export default function HeadSpaPage() {
             <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
               RÉSERVATION
             </span>
-            <h2 className="text-h2 font-space-grotesk font-semibold uppercase text-white mb-6">
+            <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-white mb-6">
               Réserver votre Soin
             </h2>
             <p className="font-inter text-body-lg text-zinc-400 mb-10 max-w-lg mx-auto">

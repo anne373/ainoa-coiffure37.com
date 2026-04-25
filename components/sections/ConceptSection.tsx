@@ -7,7 +7,7 @@ export default function ConceptSection() {
           <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
             01 / CONCEPT
           </span>
-          <h2 className="text-h2 font-space-grotesk font-semibold uppercase text-zinc-900 mb-10">
+          <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-zinc-900 mb-10">
             Notre Savoir-Faire
           </h2>
         </div>
@@ -21,7 +21,7 @@ export default function ConceptSection() {
           </p>
           <div className="grid grid-cols-2 gap-8 border-t border-zinc-200 pt-10">
             <div>
-              <span className="text-h3 font-space-grotesk font-semibold block mb-2 text-zinc-900">
+              <span className="text-[20px] sm:text-[24px] md:text-h3 font-space-grotesk font-semibold block mb-2 text-zinc-900">
                 15 ans
               </span>
               <span className="font-inter text-label-caps text-zinc-400 uppercase tracking-widest">
@@ -29,7 +29,7 @@ export default function ConceptSection() {
               </span>
             </div>
             <div>
-              <span className="text-h3 font-space-grotesk font-semibold block mb-2 text-zinc-900">
+              <span className="text-[20px] sm:text-[24px] md:text-h3 font-space-grotesk font-semibold block mb-2 text-zinc-900">
                 100%
               </span>
               <span className="font-inter text-label-caps text-zinc-400 uppercase tracking-widest">

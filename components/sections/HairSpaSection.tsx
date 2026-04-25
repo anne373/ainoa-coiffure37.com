@@ -32,7 +32,7 @@ export default function HairSpaSection() {
               <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
                 02 / DÉTENTE
               </span>
-              <h2 className="text-h2 font-space-grotesk font-semibold uppercase text-zinc-900 leading-tight mb-8">
+              <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-zinc-900 mb-8">
                 L'Expérience<br />Head Spa
               </h2>
               <p className="font-inter text-body-lg text-zinc-600 mb-10 leading-relaxed">

@@ -6,7 +6,7 @@ export default function ContactSection() {
           <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
             04 / CONTACT
           </span>
-          <h2 className="text-h2 font-space-grotesk font-semibold uppercase text-zinc-900 mb-4">
+          <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-zinc-900 mb-4">
             Rejoignez-nous
           </h2>
           <p className="font-inter text-body-md text-zinc-500 max-w-2xl">

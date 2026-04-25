@@ -17,7 +17,7 @@ export default function PortfolioSection() {
             03 / PORTFOLIO
           </span>
           <div className="flex justify-between items-end">
-            <h2 className="text-h2 font-space-grotesk font-semibold uppercase text-zinc-900">
+            <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-zinc-900">
               Nos Créations
             </h2>
             <a
@@ -43,7 +43,7 @@ export default function PortfolioSection() {
             />
             <div className="absolute bottom-0 left-0 p-10 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
               <span className="font-inter text-xs font-bold tracking-widest uppercase opacity-70">CRÉATION 01</span>
-              <p className="text-h3 font-space-grotesk font-semibold mt-2">BALAYAGE &amp; ONDULATION</p>
+              <p className="text-[18px] sm:text-[22px] md:text-h3 font-space-grotesk font-semibold mt-2">BALAYAGE &amp; ONDULATION</p>
             </div>
           </div>
 

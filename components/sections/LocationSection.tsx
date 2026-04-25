@@ -6,7 +6,7 @@ export default function LocationSection() {
           <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
             05 / LOCALISATION
           </span>
-          <h2 className="text-h2 font-space-grotesk font-semibold uppercase text-zinc-900">
+          <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-zinc-900">
             Nous Trouver
           </h2>
         </div>
@@ -29,7 +29,7 @@ export default function LocationSection() {
           {/* Carte de contact superposée */}
           <div className="absolute top-12 left-12 z-10">
             <div className="bg-zinc-900 text-white p-12 rounded-[40px] shadow-2xl max-w-sm">
-              <h3 className="text-h3 font-space-grotesk font-semibold text-white uppercase mb-8 border-b border-white/10 pb-6">
+              <h3 className="text-[20px] sm:text-[24px] md:text-h3 font-space-grotesk font-semibold text-white uppercase mb-8 border-b border-white/10 pb-6">
                 Ainoa<br />Coiffure
               </h3>
               <div className="space-y-8">
