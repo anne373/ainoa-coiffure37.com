@@ -33,11 +33,12 @@ export default function PortfolioSection() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:h-[800px]">
 
           {/* Grande case gauche — coupe-1 */}
-          <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-[40px] h-[400px] md:h-full">
+          <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-[40px] h-[260px] sm:h-[360px] md:h-full">
             <Image
               src={images.grande}
               alt="Balayage cheveux longs"
               fill
+              sizes="(max-width: 768px) calc(100vw - 64px), 50vw"
               className="object-cover object-top transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-10 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
@@ -47,11 +48,12 @@ export default function PortfolioSection() {
           </div>
 
           {/* Haut droite — coupe-2 bob bouclé */}
-          <div className="md:col-span-1 relative group overflow-hidden rounded-[40px] h-[300px] md:h-full">
+          <div className="md:col-span-1 relative group overflow-hidden rounded-[40px] h-[220px] sm:h-[280px] md:h-full">
             <Image
               src={images.bob}
               alt="Bob bouclé"
               fill
+              sizes="(max-width: 768px) calc(100vw - 64px), 25vw"
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-6 text-white bg-gradient-to-t from-black/70 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -60,11 +62,12 @@ export default function PortfolioSection() {
           </div>
 
           {/* Haut droite — coupe-3 coupe courte */}
-          <div className="md:col-span-1 relative group overflow-hidden rounded-[40px] h-[300px] md:h-full">
+          <div className="md:col-span-1 relative group overflow-hidden rounded-[40px] h-[220px] sm:h-[280px] md:h-full">
             <Image
               src={images.courte}
               alt="Coupe courte blonde"
               fill
+              sizes="(max-width: 768px) calc(100vw - 64px), 25vw"
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-6 text-white bg-gradient-to-t from-black/70 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -73,11 +76,12 @@ export default function PortfolioSection() {
           </div>
 
           {/* Bas droite — coupe-4 homme (large) */}
-          <div className="md:col-span-2 relative group overflow-hidden rounded-[40px] h-[250px] md:h-full">
+          <div className="md:col-span-2 relative group overflow-hidden rounded-[40px] h-[220px] sm:h-[280px] md:h-full">
             <Image
               src={images.homme}
               alt="Dégradé homme"
               fill
+              sizes="(max-width: 768px) calc(100vw - 64px), 50vw"
               className="object-cover object-top transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute top-6 right-6">

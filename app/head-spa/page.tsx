@@ -45,13 +45,14 @@ export default function HeadSpaPage() {
       <main className="pt-20 bg-[#FFF7F2]">
 
         {/* Hero */}
-        <section className="relative mt-4 mx-4 h-[480px] overflow-hidden rounded-[48px]">
+        <section className="relative mt-4 mx-4 h-[220px] sm:h-[320px] md:h-[420px] lg:h-[480px] overflow-hidden rounded-[48px]">
           <Image
             src="/images/spa/image6.png"
             alt="Head Spa Ainoa Coiffure"
             fill
             priority
             className="object-cover brightness-[0.65]"
+            sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 32px), 1280px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="absolute inset-0 flex items-end">

@@ -74,7 +74,7 @@ export default function HairSpaSection() {
           </div>
 
           {/* Images avec crossfade + blur */}
-          <div className="col-span-12 md:col-span-6 relative h-[500px] md:h-[600px] overflow-hidden rounded-[48px]">
+          <div className="col-span-12 md:col-span-6 relative h-[260px] sm:h-[380px] md:h-[600px] overflow-hidden rounded-[48px]">
             {SPA_IMAGES.map((img, i) => (
               <div
                 key={img.src}
@@ -89,6 +89,7 @@ export default function HairSpaSection() {
                   alt={img.alt}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) calc(100vw - 64px), 50vw"
                 />
               </div>
             ))}

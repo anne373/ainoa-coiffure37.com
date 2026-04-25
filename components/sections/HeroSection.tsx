@@ -27,7 +27,7 @@ export default function HeroSection() {
   }, [next])
 
   return (
-    <section id="accueil" className="relative mt-4 mx-4 h-[616px]">
+    <section id="accueil" className="relative mt-4 mx-4 h-[280px] sm:h-[400px] md:h-[520px] lg:h-[616px]">
       <div className="relative h-full w-full overflow-hidden rounded-[48px] flex items-end">
 
         {/* Slides en fade */}
@@ -44,6 +44,7 @@ export default function HeroSection() {
               fill
               priority={i === 0}
               className="object-cover brightness-[0.72]"
+            sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 32px), 1280px"
             />
           </div>
         ))}
