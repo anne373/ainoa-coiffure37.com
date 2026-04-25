@@ -93,7 +93,7 @@ export default function HeadSpaPage() {
             {services.map((service) => (
               <div
                 key={service.number}
-                className="bg-white rounded-[40px] overflow-hidden shadow-sm border border-zinc-100 hover:-translate-y-1 transition-transform duration-300"
+                className="bg-[#FFF7F2] rounded-[40px] overflow-hidden shadow-sm border border-zinc-100 hover:-translate-y-1 transition-transform duration-300"
               >
                 {/* Barre orange en haut */}
                 <div className="h-1 bg-[#F54927]" />
@@ -130,7 +130,7 @@ export default function HeadSpaPage() {
                             href={PLANITY_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group bg-[#FFF7F2] rounded-[24px] p-5 text-center hover:bg-[#F54927] transition-all duration-300 cursor-pointer"
+                            className="group bg-white rounded-[24px] p-5 text-center hover:bg-[#F54927] transition-all duration-300 cursor-pointer"
                           >
                             <p className="font-inter text-xs text-zinc-400 uppercase tracking-widest mb-2 group-hover:text-white/80 transition-colors">
                               {opt.label}
