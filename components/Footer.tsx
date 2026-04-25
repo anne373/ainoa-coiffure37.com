@@ -47,7 +47,7 @@ export default function Footer() {
           Site réalisé par
           <span className="font-bold">
             <i className="fas fa-code text-[#F54927] mr-0.5" />
-            Des<span className="text-[#F54927]">Codes</span>
+            DES<span className="text-[#F54927]">CODES</span>
           </span>
         </a>
       </div>
