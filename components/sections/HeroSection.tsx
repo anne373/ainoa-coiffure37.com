@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from 'react'
 const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
 const slides = [
-  { src: '/images/hero/hero-ainoa.jpg', alt: 'Ainoa Coiffure' },
+  { src: '/images/hero/hero-ainoa.png', alt: 'Ainoa Coiffure' },
   { src: '/images/hero/image2.png',     alt: 'Intérieur du salon' },
   { src: '/images/hero/image3.png',     alt: "L'équipe Ainoa Coiffure" },
   { src: '/images/hero/image4.png',     alt: 'Salon Ainoa Coiffure' },
