@@ -35,35 +35,15 @@ export default function HairSpaSection() {
               <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-h2 leading-tight font-space-grotesk font-semibold uppercase text-zinc-900 mb-8">
                 L'Expérience<br />Head Spa
               </h2>
-              <p className="font-inter text-body-lg text-zinc-600 mb-10 leading-relaxed">
-                Découvrez un sanctuaire de sérénité dédié à la santé de votre cuir chevelu.
-                Nos soins profonds marient l'expertise technique à un bien-être absolu, pour
-                une chevelure revitalisée et un esprit apaisé.
+              <p className="font-inter text-body-lg text-zinc-600 mb-8 leading-relaxed">
+                Une évasion sensorielle unique pour le cuir chevelu et l'esprit. Laissez-vous transporter par nos rituels de soin inspirés du Japon.
               </p>
-              <div className="space-y-6 mb-12">
-                <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-[#F54927]">spa</span>
-                  <div>
-                    <h4 className="font-bold text-zinc-900 uppercase text-sm tracking-wide mb-1 font-space-grotesk">
-                      Soin du cuir chevelu
-                    </h4>
-                    <p className="text-zinc-500 text-sm font-inter">
-                      Une approche pour restaurer l'équilibre naturel de votre cuir chevelu.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-[#F54927]">psychology</span>
-                  <div>
-                    <h4 className="font-bold text-zinc-900 uppercase text-sm tracking-wide mb-1 font-space-grotesk">
-                      Relaxation Sensorielle
-                    </h4>
-                    <p className="text-zinc-500 text-sm font-inter">
-                      Un moment de déconnexion totale au cœur de notre salon.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <h3 className="font-space-grotesk font-semibold text-zinc-900 text-[18px] uppercase tracking-wide mb-4">
+                Un Voyage de Bien-Être Absolu
+              </h3>
+              <p className="font-inter text-body-lg text-zinc-600 mb-10 leading-relaxed">
+                Le Head SPA est bien plus qu'un simple soin. C'est un rituel complet qui purifie le cuir chevelu, nourrit les cheveux en profondeur et procure une relaxation intense grâce à des techniques de modelage exclusives. Offrez-vous une parenthèse de détente et de lâcher-prise.
+              </p>
               <Link
                 href="/head-spa"
                 className="inline-block bg-[#F54927] text-white px-10 py-5 rounded-full font-inter text-sm tracking-widest uppercase hover:bg-zinc-900 transition-all"
