@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 
-const PLANITY_URL = 'https://www.planity.com' // ← Remplacer par votre URL Planity
+const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
 const slides = [
   { src: '/images/hero/hero-ainoa.jpg', alt: 'Ainoa Coiffure' },
@@ -27,7 +27,7 @@ export default function HeroSection() {
   }, [next])
 
   return (
-    <section id="accueil" className="relative mt-4 mx-4 h-[880px]">
+    <section id="accueil" className="relative mt-4 mx-4 h-[616px]">
       <div className="relative h-full w-full overflow-hidden rounded-[48px] flex items-end">
 
         {/* Slides en fade */}

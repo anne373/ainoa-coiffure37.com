@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 // ← Remplacer par votre URL Planity
-const PLANITY_URL = 'https://www.planity.com'
+const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
 const navLinks = [
   { href: '#accueil', label: 'Accueil' },

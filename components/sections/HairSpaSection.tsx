@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
-const PLANITY_URL = 'https://www.planity.com' // ← Remplacer par votre URL Planity
+const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
 const SPA_IMAGES = [
   { src: '/images/spa/image6.png',       alt: 'Soin du cuir chevelu' },
