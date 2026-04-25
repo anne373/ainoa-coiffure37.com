@@ -27,8 +27,10 @@ export default function HeroSection() {
   }, [next])
 
   return (
-    <section id="accueil" className="relative mt-4 mx-4 h-[280px] sm:h-[400px] md:h-[520px] lg:h-[616px]">
-      <div className="relative h-full w-full overflow-hidden rounded-[48px] flex items-end">
+    <section id="accueil" className="mt-4 mx-4">
+
+      {/* Carousel */}
+      <div className="relative h-[280px] sm:h-[400px] md:h-[520px] lg:h-[616px] w-full overflow-hidden rounded-[48px]">
 
         {/* Slides en fade */}
         {slides.map((slide, i) => (
@@ -43,36 +45,11 @@ export default function HeroSection() {
               alt={slide.alt}
               fill
               priority={i === 0}
-              className="object-cover brightness-[0.72]"
-            sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 32px), 1280px"
+              className="object-cover"
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 32px), 1280px"
             />
           </div>
         ))}
-
-        {/* Gradient bas */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10" />
-
-        {/* Contenu texte — aligné sur le même axe que les sections sous le hero */}
-        <div className="relative z-20 w-full text-white">
-          <div className="max-w-[1280px] mx-auto px-8 pb-10">
-          <div className="max-w-[470px]">
-<h1 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[45px] leading-[1.1] font-space-grotesk font-bold text-white uppercase mb-5">
-              L'art de la coiffure, la passion du soin.
-            </h1>
-            <p className="font-inter text-[13px] leading-relaxed mb-7 opacity-90">
-              Bienvenue chez Aïnoa Coiffure, où votre beauté est notre inspiration.
-            </p>
-            <a
-              href={PLANITY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#F54927] text-white px-7 py-3 rounded-full font-inter text-[10px] tracking-widest uppercase hover:bg-white hover:text-zinc-900 transition-all"
-            >
-              Prendre Rendez-vous
-            </a>
-          </div>
-          </div>
-        </div>
 
         {/* Flèche gauche */}
         <button
@@ -93,7 +70,7 @@ export default function HeroSection() {
         </button>
 
         {/* Dots de navigation */}
-        <div className="absolute bottom-9 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -109,6 +86,25 @@ export default function HeroSection() {
         </div>
 
       </div>
+
+      {/* Texte sous le carousel */}
+      <div className="max-w-[1280px] mx-auto px-4 pt-8 pb-2">
+        <h1 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[45px] leading-[1.1] font-space-grotesk font-bold text-zinc-900 uppercase mb-4">
+          L'art de la coiffure, la passion du soin.
+        </h1>
+        <p className="font-inter text-[13px] text-zinc-500 leading-relaxed mb-6">
+          Bienvenue chez Aïnoa Coiffure, où votre beauté est notre inspiration.
+        </p>
+        <a
+          href={PLANITY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-[#F54927] text-white px-7 py-3 rounded-full font-inter text-[10px] tracking-widest uppercase hover:bg-zinc-900 transition-all"
+        >
+          Prendre Rendez-vous
+        </a>
+      </div>
+
     </section>
   )
 }
