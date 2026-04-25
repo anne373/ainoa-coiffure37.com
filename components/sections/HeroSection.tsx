@@ -56,10 +56,7 @@ export default function HeroSection() {
         <div className="relative z-20 w-full text-white">
           <div className="max-w-[1280px] mx-auto px-8 pb-10">
           <div className="max-w-[470px]">
-            <span className="text-[#F54927] font-inter font-bold text-[10px] tracking-[0.2em] uppercase mb-3 block">
-              01 / CONCEPT
-            </span>
-            <h1 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[45px] leading-[1.1] font-space-grotesk font-bold text-white uppercase mb-5">
+<h1 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[45px] leading-[1.1] font-space-grotesk font-bold text-white uppercase mb-5">
               L'art de la coiffure, la passion du soin.
             </h1>
             <p className="font-inter text-[13px] leading-relaxed mb-7 opacity-90">
