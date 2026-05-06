@@ -59,13 +59,13 @@ export default function LocationSection() {
           <div className="h-[280px] rounded-[40px] overflow-hidden">
             <iframe
               title="Localisation Ainoa Coiffure"
-              src="https://maps.google.com/maps?q=44+Bd+Charles+de+Gaulle%2C+37540+Saint-Cyr-sur-Loire%2C+France&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.049405628587!2d0.6746795000000001!3d47.410420899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd50b016f3493%3A0x2f93239c75503d3b!2sA%C3%8FNOA!5e0!3m2!1sfr!2sfr!4v1699999999999"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
-              className="map-grayscale w-full h-full"
+              className="w-full h-full"
             />
           </div>
         </div>
@@ -75,13 +75,13 @@ export default function LocationSection() {
           <div className="absolute inset-0 bg-zinc-200">
             <iframe
               title="Localisation Ainoa Coiffure"
-              src="https://maps.google.com/maps?q=44+Bd+Charles+de+Gaulle%2C+37540+Saint-Cyr-sur-Loire%2C+France&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.049405628587!2d0.6746795000000001!3d47.410420899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd50b016f3493%3A0x2f93239c75503d3b!2sA%C3%8FNOA!5e0!3m2!1sfr!2sfr!4v1699999999999"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
-              className="map-grayscale w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-700"
+              className="w-full h-full"
             />
           </div>
           <div className="absolute top-12 left-12 z-10 max-w-sm w-full">
