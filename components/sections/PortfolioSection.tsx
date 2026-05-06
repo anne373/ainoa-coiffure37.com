@@ -39,7 +39,7 @@ export default function PortfolioSection() {
               alt="Balayage cheveux longs"
               fill
               sizes="(max-width: 768px) calc(100vw - 64px), 50vw"
-              className="object-cover object-top transition-transform duration-1000 group-hover:scale-105"
+              className="object-cover object-[center_15%] transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-10 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
               <span className="font-inter text-xs font-bold tracking-widest uppercase opacity-70">CRÉATION 01</span>
@@ -54,7 +54,7 @@ export default function PortfolioSection() {
               alt="Bob bouclé"
               fill
               sizes="(max-width: 768px) calc(100vw - 64px), 25vw"
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              className="object-cover object-[center_20%] transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-6 text-white bg-gradient-to-t from-black/70 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="font-space-grotesk font-semibold uppercase text-sm">BOB BOUCLÉ</p>
@@ -68,7 +68,7 @@ export default function PortfolioSection() {
               alt="Coupe courte blonde"
               fill
               sizes="(max-width: 768px) calc(100vw - 64px), 25vw"
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              className="object-cover object-[center_15%] transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-6 text-white bg-gradient-to-t from-black/70 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="font-space-grotesk font-semibold uppercase text-sm">COUPE COURTE</p>
@@ -82,7 +82,7 @@ export default function PortfolioSection() {
               alt="Dégradé homme"
               fill
               sizes="(max-width: 768px) calc(100vw - 64px), 50vw"
-              className="object-cover object-top transition-transform duration-1000 group-hover:scale-105"
+              className="object-cover object-[center_20%] transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute top-6 right-6">
               <span className="bg-white/90 backdrop-blur text-zinc-900 px-5 py-2 rounded-full font-inter font-bold text-[10px] tracking-widest uppercase shadow-sm">
