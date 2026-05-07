@@ -1,33 +1,71 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
 const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
 const navLinks = [
-  { href: '/',           label: 'Accueil' },
-  { href: '/#concept',   label: 'Salon' },
-  { href: '/head-spa',   label: 'Head SPA' },
-  { href: '/#creations', label: 'Créations' },
-  { href: '/#contact',   label: 'Contact' },
+  { href: '/',           label: 'Accueil',   section: null },
+  { href: '/#concept',   label: 'Salon',     section: 'concept' },
+  { href: '/head-spa',   label: 'Head SPA',  section: null },
+  { href: '/#creations', label: 'Créations', section: 'creations' },
+  { href: '/#contact',   label: 'Contact',   section: 'contact' },
 ]
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [currentLabel, setCurrentLabel] = useState('Accueil')
   const pathname = usePathname()
 
   const isActive = (href: string) => {
     if (href === '/head-spa') return pathname === '/head-spa'
-    return pathname === '/' && href !== '/head-spa'
-      ? href === '/'
-      : false
+    return pathname === '/' && href === '/'
   }
+
+  useEffect(() => {
+    if (pathname === '/head-spa') {
+      setCurrentLabel('Head SPA')
+      return
+    }
+
+    setCurrentLabel('Accueil')
+
+    const sections = navLinks
+      .filter(l => l.section)
+      .map(l => ({ id: l.section!, label: l.label }))
+
+    const observers = sections.map(({ id, label }) => {
+      const el = document.getElementById(id)
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setCurrentLabel(label)
+        },
+        { rootMargin: '-40% 0px -55% 0px' }
+      )
+      obs.observe(el)
+      return obs
+    })
+
+    const heroObs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setCurrentLabel('Accueil') },
+      { rootMargin: '0px 0px -80% 0px' }
+    )
+    const hero = document.getElementById('accueil')
+    if (hero) heroObs.observe(hero)
+
+    return () => {
+      observers.forEach(obs => obs?.disconnect())
+      heroObs.disconnect()
+    }
+  }, [pathname])
 
   return (
     <header className="fixed top-0 w-full border-b border-zinc-200/50 bg-[#FFF7F2]/90 backdrop-blur-md z-50">
       <div className="flex justify-between items-center h-20 px-8 max-w-[1280px] mx-auto w-full">
+
         {/* Logo */}
         <a href="/">
           <Image
@@ -40,7 +78,12 @@ export default function Header() {
           />
         </a>
 
-        {/* Desktop nav — visible à partir de lg (1024px) */}
+        {/* Titre de section — mobile/tablette uniquement */}
+        <span className="lg:hidden absolute left-1/2 -translate-x-1/2 font-space-grotesk font-semibold uppercase text-sm tracking-widest text-zinc-900">
+          {currentLabel}
+        </span>
+
+        {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
