@@ -5,7 +5,7 @@ Conçu et développé par **[DESCODES.com](https://descodes.com)**.
 
 ---
 
-## Stack technique
+## Stack techniques
 
 | Outil | Version | Rôle |
 |---|---|---|
