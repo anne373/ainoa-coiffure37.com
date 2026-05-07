@@ -2,19 +2,21 @@
 
 ---
 
-## Déploiement automatique (Vercel + GitHub)
+## Dépôts GitHub
 
-Le projet est connecté à Vercel via le repo GitHub `batoucode/ainoaV2`.
+| Remote | URL | Rôle |
+|---|---|---|
+| `origin` | github.com/batoucode/ainoaV2 | Dépôt de travail (batoucode) |
+| `ainoa` | github.com/anne373/ainoa-coiffure37.com | Dépôt client — Vercel connecté ici |
 
-**Chaque push sur `main` redéploie le site automatiquement.**
-
+**Toujours pousser sur les deux :**
 ```bash
 git add .
 git commit -m "description du changement"
-git push
+git push origin main && git push ainoa main
 ```
 
-Vercel build et déploie en ~2 minutes.
+Vercel surveille le dépôt `anne373/ainoa-coiffure37.com` et redéploie automatiquement à chaque push sur `main` (~2 minutes).
 
 ---
 
@@ -32,7 +34,7 @@ npm run start     # Lance le build prod en local (après build)
 
 ## Variables d'environnement
 
-Ce projet n'utilise **aucune variable d'environnement** pour l'instant.  
+Ce projet n'utilise **aucune variable d'environnement**.  
 Si vous ajoutez des services (formulaire de contact, analytics…), créer un fichier `.env.local` à la racine :
 
 ```
@@ -45,29 +47,26 @@ Et déclarer les mêmes variables dans le dashboard Vercel :
 
 ---
 
-## Repo GitHub
-
-- **URL** : https://github.com/batoucode/ainoaV2
-- **Branche principale** : `main`
-- **Accès** : public
-
----
-
 ## Domaine personnalisé sur Vercel
 
-1. Dashboard Vercel → votre projet → **Domains**
-2. Ajouter votre domaine (ex: `ainoa-coiffure.fr`)
+1. Dashboard Vercel → projet `ainoa-coiffure37` → **Domains**
+2. Ajouter le domaine (ex : `ainoa-coiffure37.com`)
 3. Suivre les instructions DNS chez votre registrar
 4. Vercel gère le HTTPS automatiquement (Let's Encrypt)
+5. Le header `Strict-Transport-Security` est automatiquement actif sur les domaines custom Vercel
+
+> Aucune modification du code n'est nécessaire lors du changement de domaine — les headers de sécurité s'appliquent sur toutes les routes.
 
 ---
 
 ## Checklist avant mise en production
 
-- [ ] Remplacer les images temporaires par vos vraies photos
-- [ ] Mettre à jour `PLANITY_URL` avec votre lien Planity réel
-- [ ] Ajouter les liens Facebook et Instagram réels dans `ContactSection.tsx`
-- [ ] Mettre à jour l'URL Google Maps si l'adresse diffère
-- [ ] Vérifier le rendu mobile (`npm run dev` + DevTools)
+- [x] Headers de sécurité configurés (score A/A+ sur securityheaders.com)
+- [x] Carte Google Maps en couleur
+- [x] Menu hamburger responsive (hamburger sous 1024px)
+- [ ] Remplacer les images par les vraies photos
+- [ ] Vérifier le lien `PLANITY_URL` dans `Header.tsx` et `app/head-spa/page.tsx`
+- [ ] Vérifier les liens Facebook et Instagram dans `ContactSection.tsx`
 - [ ] `npm run build` sans erreur
-- [ ] Configurer un domaine personnalisé (optionnel)
+- [ ] Tester sur mobile réel
+- [ ] Configurer le domaine personnalisé sur Vercel
