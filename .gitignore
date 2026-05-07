@@ -1,7 +1,3 @@
-# Documentation locale (non publiée)
-.doc/
-CLAUDE.md
-
 /node_modules
 /.next/
 /out/
