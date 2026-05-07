@@ -7,30 +7,33 @@ const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
 const services = [
   {
-    number: '01',
+    tag: 'Essentiel',
     name: 'Soin Relaxant',
     note: null,
-    description: 'Shampooing • soin • modelage crânien + épaules, bras et mains',
+    description: 'Shampooing · soin · modelage crânien + épaules, bras et mains',
+    premium: false,
     options: [
       { label: 'Avec Brushing', price: '75€', duration: '70 min' },
       { label: 'Sans Brushing', price: '60€', duration: '45 min' },
     ],
   },
   {
-    number: '02',
+    tag: 'Profond',
     name: 'Soin Profond',
     note: 'Traitement personnalisé et relaxant suivant :',
-    description: 'Gommage • shampooing • hydrolat • soin cheveux • modelage crânien • vapeur + modelage des bras et des mains • brushing',
+    description: 'Gommage · shampooing · hydrolat · soin cheveux · modelage crânien · vapeur + modelage des bras et des mains · brushing',
+    premium: false,
     options: [
       { label: 'Avec Brushing', price: '115€', duration: '90 min' },
       { label: 'Sans Brushing', price: '100€', duration: '60 min' },
     ],
   },
   {
-    number: '03',
+    tag: 'Signature',
     name: 'Traitant & Relaxant',
     note: 'Immersion dans une relaxation profonde avec un rituel de 8 étapes :',
-    description: 'Gommage + scrubber • shampooing • hydrolat • soin cheveux • peigne radio fréquence • modelage crânien • vapeur + modelage des bras et des mains • bain vapeur • modelage visage',
+    description: 'Gommage + scrubber · shampooing · hydrolat · soin cheveux · peigne radio fréquence · modelage crânien · vapeur + modelage des bras et des mains · bain vapeur · modelage visage',
+    premium: true,
     options: [
       { label: 'Avec Brushing', price: '175€', duration: '120 min' },
       { label: 'Sans Brushing', price: '160€', duration: '90 min' },
@@ -57,9 +60,6 @@ export default function HeadSpaPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="max-w-[1280px] mx-auto px-8 pb-12 w-full text-white">
-              <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase mb-3 block">
-                02 / DÉTENTE
-              </span>
               <h1 className="text-[26px] sm:text-[34px] md:text-[44px] lg:text-h1 leading-tight font-space-grotesk font-bold uppercase mb-4">
                 Head Spa
               </h1>
@@ -93,31 +93,41 @@ export default function HeadSpaPage() {
           <div className="flex flex-col gap-8">
             {services.map((service) => (
               <div
-                key={service.number}
-                className="bg-[#FFF7F2] rounded-[40px] overflow-hidden shadow-sm border border-zinc-100 hover:-translate-y-1 transition-transform duration-300"
+                key={service.name}
+                className={`relative rounded-[40px] overflow-hidden hover:-translate-y-1 transition-transform duration-300 ${
+                  service.premium
+                    ? 'card-aura bg-zinc-900 border border-zinc-700/60'
+                    : 'bg-[#FFF7F2] border border-zinc-100 shadow-sm'
+                }`}
               >
-                {/* Barre orange en haut */}
-                <div className="h-1 bg-[#F54927]" />
+                {/* Barre haut */}
+                <div className={`h-1 ${service.premium ? 'bg-[#F54927]' : 'bg-zinc-200'}`} />
 
                 <div className="p-10 md:p-12">
                   <div className="flex flex-col md:flex-row md:items-start gap-8">
 
-                    {/* Numéro + titre + description */}
+                    {/* Texte */}
                     <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className="text-[#F54927] font-inter font-bold text-xs tracking-[0.2em] uppercase">
-                          {service.number} / SOIN
-                        </span>
-                      </div>
-                      <h3 className="text-[18px] sm:text-[22px] md:text-h3 font-space-grotesk font-semibold uppercase text-zinc-900 mb-4">
+                      <span className={`inline-block text-[10px] font-inter font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full mb-5 ${
+                        service.premium
+                          ? 'bg-[#F54927] text-white'
+                          : 'bg-zinc-100 text-zinc-500'
+                      }`}>
+                        {service.tag}
+                      </span>
+                      <h3 className={`text-[18px] sm:text-[22px] md:text-h3 font-space-grotesk font-semibold uppercase mb-4 ${
+                        service.premium ? 'text-white' : 'text-zinc-900'
+                      }`}>
                         {service.name}
                       </h3>
                       {service.note && (
-                        <p className="font-inter text-sm text-[#F54927] italic mb-2">
+                        <p className="font-inter text-sm text-[#F54927] italic mb-3">
                           {service.note}
                         </p>
                       )}
-                      <p className="font-inter text-body-md text-zinc-500 leading-relaxed">
+                      <p className={`font-inter text-body-md leading-relaxed ${
+                        service.premium ? 'text-zinc-400' : 'text-zinc-500'
+                      }`}>
                         {service.description}
                       </p>
                     </div>
@@ -131,7 +141,11 @@ export default function HeadSpaPage() {
                             href={PLANITY_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group bg-white rounded-[24px] p-5 text-center hover:bg-[#F54927] transition-all duration-300 cursor-pointer"
+                            className={`group rounded-[24px] p-5 text-center transition-all duration-300 cursor-pointer ${
+                              service.premium
+                                ? 'bg-zinc-800 hover:bg-[#F54927]'
+                                : 'bg-white hover:bg-[#F54927]'
+                            }`}
                           >
                             <p className="font-inter text-xs text-zinc-400 uppercase tracking-widest mb-2 group-hover:text-white/80 transition-colors">
                               {opt.label}
