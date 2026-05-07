@@ -26,15 +26,21 @@ Zéro dépendance UI externe — Tailwind CSS seul pour les styles.
 ainoa-coiffure/
 │
 ├── app/
-│   ├── layout.tsx              # Racine HTML : polices, metadata, globals.css
-│   ├── page.tsx                # Accueil — assemblage des sections
+│   ├── layout.tsx              # Racine HTML : polices, metadata, LocalBusinessSchema
+│   ├── page.tsx                # Accueil — assemblage des sections + metadata + BreadcrumbSchema
 │   ├── globals.css             # Tailwind + animations aura (card-aura-*)
+│   ├── sitemap.ts              # /sitemap.xml dynamique
+│   ├── robots.ts               # /robots.txt
+│   ├── opengraph-image.tsx     # OG image accueil (1200×630, edge)
 │   └── head-spa/
-│       └── page.tsx            # Page dédiée Head Spa + 3 formules tarifaires
+│       ├── page.tsx            # Page dédiée Head Spa + metadata + BreadcrumbSchema
+│       └── opengraph-image.tsx # OG image Head Spa (1200×630, edge)
 │
 ├── components/
 │   ├── Header.tsx              # Navigation fixe (Client Component)
 │   ├── Footer.tsx              # Pied de page
+│   ├── LocalBusinessSchema.tsx # JSON-LD HairSalon (Schema.org) — injecté dans layout
+│   ├── BreadcrumbSchema.tsx    # JSON-LD BreadcrumbList — injecté dans chaque page
 │   └── sections/
 │       ├── HeroSection.tsx     # Carousel 6 images + accroche (#accueil)
 │       ├── ConceptSection.tsx  # Présentation salon (#concept)
@@ -42,6 +48,9 @@ ainoa-coiffure/
 │       ├── PortfolioSection.tsx # Bento grid 4 photos (#creations)
 │       ├── ContactSection.tsx  # Réseaux, adresse, horaires (#contact)
 │       └── LocationSection.tsx # Google Maps iframe couleur
+│
+├── lib/
+│   └── business.ts             # Source de vérité SEO : coordonnées, horaires, réseaux...
 │
 ├── public/
 │   └── images/
@@ -101,6 +110,7 @@ app/layout.tsx
 - **Images** — `next/image` avec `fill` + `object-cover`. Position ajustée par image (`object-[center_X%]`) pour cadrer sur la coupe de cheveux.
 - **Animations** — CSS pur dans `globals.css` (pas de Framer Motion ni GSAP).
 - **Sécurité** — 5 headers HTTP configurés dans `next.config.ts` (voir `.doc/security.md`).
+- **SEO local** — data layer `lib/business.ts`, JSON-LD Schema.org, metadata par page, sitemap et robots dynamiques (voir `.doc/seo.md`).
 - **Responsive** — mobile-first, breakpoints Tailwind : `sm:640px md:768px lg:1024px`.
 - **Menu hamburger** — affiché sous `lg` (1024px) pour éviter l'encombrement sur tablette.
 

@@ -30,12 +30,14 @@ Conçu et développé par **[DESCODES.com](https://descodes.com)**.
 
 ```
 components/
-├── Header.tsx          Navigation fixe (Client Component)
-│                       → 2 lignes sur mobile/tablette
-│                       → Détection de section active via IntersectionObserver
-│                       → Menu hamburger sous 1024px
+├── Header.tsx              Navigation fixe (Client Component)
+│                           → 2 lignes sur mobile/tablette
+│                           → Détection de section active via IntersectionObserver
+│                           → Menu hamburger sous 1024px
 │
-├── Footer.tsx          Pied de page
+├── Footer.tsx              Pied de page
+├── LocalBusinessSchema.tsx JSON-LD HairSalon (Schema.org) — injecté dans layout
+├── BreadcrumbSchema.tsx    JSON-LD BreadcrumbList — injecté dans chaque page
 │
 └── sections/
     ├── HeroSection.tsx       Carousel automatique (6 images, 5s)
@@ -45,6 +47,17 @@ components/
     ├── ContactSection.tsx    Réseaux sociaux, adresse, téléphone, horaires
     └── LocationSection.tsx   Carte Google Maps intégrée (iframe couleur)
 ```
+
+### SEO & données métier
+
+```
+lib/
+└── business.ts   Source de vérité unique — nom, adresse, téléphone,
+                  horaires, réseaux sociaux, coordonnées GPS, zone de chalandise
+```
+
+Modifier `lib/business.ts` pour mettre à jour n'importe quelle info de l'entreprise :  
+les metadata, le JSON-LD et le sitemap se mettent à jour automatiquement.
 
 ### Ordre des sections (page d'accueil)
 
@@ -81,7 +94,10 @@ Footer
 | `next.config.ts` | Headers de sécurité HTTP (CSP, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy) + images distantes autorisées |
 | `tailwind.config.ts` | Design system : palette de couleurs, typographie, border-radius, espacements |
 | `app/globals.css` | Directives Tailwind + animations CSS personnalisées (effets de lueur respirants sur les cartes) |
-| `app/layout.tsx` | Racine HTML : chargement des polices, balises meta SEO, langue |
+| `app/layout.tsx` | Racine HTML : chargement des polices, balises meta SEO, langue, LocalBusinessSchema |
+| `app/sitemap.ts` | Génère `/sitemap.xml` dynamiquement |
+| `app/robots.ts` | Génère `/robots.txt` dynamiquement |
+| `lib/business.ts` | Data layer SEO — source de vérité unique de l'entreprise |
 
 ---
 
@@ -108,6 +124,24 @@ Footer
 - `Permissions-Policy` — désactivation des APIs navigateur non utilisées
 
 Score cible : **A / A+** sur securityheaders.com.
+
+---
+
+## SEO local
+
+Système complet de référencement local, sans impact visuel.
+
+| Élément | Fichier | Description |
+|---|---|---|
+| Data layer | `lib/business.ts` | Source de vérité unique de l'entreprise |
+| Schema.org | `components/LocalBusinessSchema.tsx` | JSON-LD HairSalon injecté sur toutes les pages |
+| Breadcrumb | `components/BreadcrumbSchema.tsx` | JSON-LD fil d'Ariane par page |
+| Metadata | `app/layout.tsx`, `app/page.tsx`, `app/head-spa/page.tsx` | Titres, descriptions, canonical, OpenGraph |
+| Sitemap | `app/sitemap.ts` | `/sitemap.xml` dynamique |
+| Robots | `app/robots.ts` | `/robots.txt` |
+| OG Image | `app/opengraph-image.tsx` + `app/head-spa/opengraph-image.tsx` | Visuels réseaux sociaux 1200×630 |
+
+> Voir `.doc/seo.md` pour le détail complet.
 
 ---
 
@@ -147,6 +181,7 @@ Voir le dossier `.doc/` :
 - `images.md` — gestion et remplacement des photos
 - `deployment.md` — workflow de déploiement et checklist
 - `security.md` — détail des headers de sécurité
+- `seo.md` — système SEO local : data layer, JSON-LD, metadata, sitemap
 
 ---
 

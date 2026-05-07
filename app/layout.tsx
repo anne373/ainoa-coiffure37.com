@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
+import { business } from '@/lib/business'
+import LocalBusinessSchema from '@/components/LocalBusinessSchema'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -17,10 +19,41 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Ainoa Coiffure | Saint-Cyr-sur-Loire',
-  description:
-    'Salon de coiffure à Saint-Cyr-sur-Loire. Bienvenue chez Aïnoa Coiffure, où votre beauté est notre inspiration.',
-  keywords: 'coiffure, salon, Saint-Cyr-sur-Loire, head spa, coiffeur',
+  title: {
+    default: 'Ainoa Coiffure | Salon de coiffure Saint-Cyr-sur-Loire',
+    template: '%s | Ainoa Coiffure',
+  },
+  description: business.description,
+  keywords: [
+    'coiffure Saint-Cyr-sur-Loire',
+    'salon de coiffure',
+    'coiffeur Saint-Cyr-sur-Loire',
+    'head spa',
+    'soin capillaire',
+    'coiffure Tours',
+    'Ainoa Coiffure',
+    'onglerie',
+  ],
+  metadataBase: new URL(business.url),
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: business.url,
+    siteName: business.name,
+    title: 'Ainoa Coiffure | Salon de coiffure Saint-Cyr-sur-Loire',
+    description: business.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ainoa Coiffure | Salon de coiffure Saint-Cyr-sur-Loire',
+    description: business.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -37,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased bg-[#FFF7F2] text-[#1a1c1c] font-inter">
+        <LocalBusinessSchema />
         {children}
       </body>
     </html>

@@ -1,7 +1,31 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { business } from '@/lib/business'
+import BreadcrumbSchema from '@/components/BreadcrumbSchema'
+
+export const metadata: Metadata = {
+  title: 'Head Spa Saint-Cyr-sur-Loire | Ainoa Coiffure',
+  description:
+    'Découvrez nos soins Head Spa à Saint-Cyr-sur-Loire : soin relaxant, soin profond et rituel signature. Réservez en ligne sur Planity.',
+  alternates: { canonical: '/head-spa' },
+  keywords: [
+    'head spa Saint-Cyr-sur-Loire',
+    'soin capillaire',
+    'soin relaxant cheveux',
+    'massage crânien',
+    'head spa Tours',
+    'Ainoa Coiffure head spa',
+  ],
+  openGraph: {
+    url: `${business.url}/head-spa`,
+    title: 'Head Spa Saint-Cyr-sur-Loire | Ainoa Coiffure',
+    description:
+      'Découvrez nos soins Head Spa à Saint-Cyr-sur-Loire : soin relaxant, soin profond et rituel signature. Réservez en ligne sur Planity.',
+  },
+}
 
 const PLANITY_URL = 'https://www.planity.com/ainoa-37540-saint-cyr-sur-loire'
 
@@ -44,6 +68,12 @@ const services = [
 export default function HeadSpaPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: 'Accueil', url: '/' },
+          { name: 'Head Spa', url: '/head-spa' },
+        ]}
+      />
       <Header />
       <main className="pt-20 bg-[#FFF7F2]">
 
