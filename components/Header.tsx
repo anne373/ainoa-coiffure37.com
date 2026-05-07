@@ -64,7 +64,9 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full border-b border-zinc-200/50 bg-[#FFF7F2]/90 backdrop-blur-md z-50">
-      <div className="flex justify-between items-center h-20 px-8 max-w-[1280px] mx-auto w-full">
+
+      {/* Ligne principale */}
+      <div className="flex justify-between items-center h-14 lg:h-20 px-6 lg:px-8 max-w-[1280px] mx-auto w-full">
 
         {/* Logo */}
         <a href="/">
@@ -73,15 +75,10 @@ export default function Header() {
             alt="Ainoa Coiffure"
             width={160}
             height={52}
-            className="mix-blend-multiply"
+            className="mix-blend-multiply w-[120px] lg:w-[160px]"
             priority
           />
         </a>
-
-        {/* Titre de section — mobile/tablette uniquement */}
-        <span className="lg:hidden absolute left-1/2 -translate-x-1/2 font-space-grotesk font-semibold uppercase text-sm tracking-widest text-zinc-900">
-          {currentLabel}
-        </span>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8">
@@ -101,7 +98,7 @@ export default function Header() {
         </nav>
 
         {/* CTA + hamburger */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <a
             href={PLANITY_URL}
             target="_blank"
@@ -111,7 +108,7 @@ export default function Header() {
             Prendre RDV
           </a>
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -120,6 +117,13 @@ export default function Header() {
             </span>
           </button>
         </div>
+      </div>
+
+      {/* Titre de section — 2ème ligne mobile/tablette uniquement */}
+      <div className="lg:hidden h-6 flex items-center justify-center border-t border-zinc-200/40">
+        <span className="font-space-grotesk font-semibold uppercase text-[10px] tracking-[0.2em] text-zinc-500">
+          {currentLabel}
+        </span>
       </div>
 
       {/* Mobile/tablette menu */}
