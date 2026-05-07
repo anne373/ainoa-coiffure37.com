@@ -102,6 +102,8 @@ export default function HeadSpaPage() {
                       : 'border border-zinc-100'
                   }`}
                 >
+                  {/* Liseré orange haut */}
+                  <div className="h-1 bg-[#F54927] rounded-t-[40px]" />
                   <div className={`p-10 md:p-12 ${isSignature ? 'bg-gradient-to-br from-white to-[#FFF5F2]' : ''}`}>
                     <div className="flex flex-col md:flex-row md:items-start gap-8">
 
