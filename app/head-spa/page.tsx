@@ -11,7 +11,7 @@ const services = [
     name: 'Soin Relaxant',
     note: null,
     description: 'Shampooing · soin · modelage crânien + épaules, bras et mains',
-    premium: false,
+    aura: 'card-aura-soft',
     options: [
       { label: 'Avec Brushing', price: '75€', duration: '70 min' },
       { label: 'Sans Brushing', price: '60€', duration: '45 min' },
@@ -22,7 +22,7 @@ const services = [
     name: 'Soin Profond',
     note: 'Traitement personnalisé et relaxant suivant :',
     description: 'Gommage · shampooing · hydrolat · soin cheveux · modelage crânien · vapeur + modelage des bras et des mains · brushing',
-    premium: false,
+    aura: 'card-aura-mid',
     options: [
       { label: 'Avec Brushing', price: '115€', duration: '90 min' },
       { label: 'Sans Brushing', price: '100€', duration: '60 min' },
@@ -33,7 +33,7 @@ const services = [
     name: 'Traitant & Relaxant',
     note: 'Immersion dans une relaxation profonde avec un rituel de 8 étapes :',
     description: 'Gommage + scrubber · shampooing · hydrolat · soin cheveux · peigne radio fréquence · modelage crânien · vapeur + modelage des bras et des mains · bain vapeur · modelage visage',
-    premium: true,
+    aura: 'card-aura-strong',
     options: [
       { label: 'Avec Brushing', price: '175€', duration: '120 min' },
       { label: 'Sans Brushing', price: '160€', duration: '90 min' },
@@ -90,81 +90,73 @@ export default function HeadSpaPage() {
 
         {/* Cartes de soins */}
         <section className="pb-[120px] max-w-[1280px] mx-auto px-8">
-          <div className="flex flex-col gap-8">
-            {services.map((service) => (
-              <div
-                key={service.name}
-                className={`relative rounded-[40px] overflow-hidden hover:-translate-y-1 transition-transform duration-300 ${
-                  service.premium
-                    ? 'card-aura bg-zinc-900 border border-zinc-700/60'
-                    : 'bg-[#FFF7F2] border border-zinc-100 shadow-sm'
-                }`}
-              >
-                {/* Barre haut */}
-                <div className={`h-1 ${service.premium ? 'bg-[#F54927]' : 'bg-zinc-200'}`} />
+          <div className="flex flex-col gap-10">
+            {services.map((service) => {
+              const isSignature = service.tag === 'Signature'
+              return (
+                <div
+                  key={service.name}
+                  className={`relative rounded-[40px] overflow-hidden hover:-translate-y-1 transition-transform duration-300 bg-white ${service.aura} ${
+                    isSignature
+                      ? 'border-2 border-[#F54927]/40'
+                      : 'border border-zinc-100'
+                  }`}
+                >
+                  <div className={`p-10 md:p-12 ${isSignature ? 'bg-gradient-to-br from-white to-[#FFF5F2]' : ''}`}>
+                    <div className="flex flex-col md:flex-row md:items-start gap-8">
 
-                <div className="p-10 md:p-12">
-                  <div className="flex flex-col md:flex-row md:items-start gap-8">
-
-                    {/* Texte */}
-                    <div className="flex-1">
-                      <span className={`inline-block text-[10px] font-inter font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full mb-5 ${
-                        service.premium
-                          ? 'bg-[#F54927] text-white'
-                          : 'bg-zinc-100 text-zinc-500'
-                      }`}>
-                        {service.tag}
-                      </span>
-                      <h3 className={`text-[18px] sm:text-[22px] md:text-h3 font-space-grotesk font-semibold uppercase mb-4 ${
-                        service.premium ? 'text-white' : 'text-zinc-900'
-                      }`}>
-                        {service.name}
-                      </h3>
-                      {service.note && (
-                        <p className="font-inter text-sm text-[#F54927] italic mb-3">
-                          {service.note}
+                      {/* Texte */}
+                      <div className="flex-1">
+                        <span className={`inline-block text-[10px] font-inter font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full mb-5 ${
+                          isSignature
+                            ? 'bg-[#F54927] text-white'
+                            : 'bg-zinc-100 text-zinc-500'
+                        }`}>
+                          {service.tag}
+                        </span>
+                        <h3 className="text-[18px] sm:text-[22px] md:text-h3 font-space-grotesk font-semibold uppercase text-zinc-900 mb-4">
+                          {service.name}
+                        </h3>
+                        {service.note && (
+                          <p className="font-inter text-sm text-[#F54927] italic mb-3">
+                            {service.note}
+                          </p>
+                        )}
+                        <p className="font-inter text-body-md text-zinc-500 leading-relaxed">
+                          {service.description}
                         </p>
-                      )}
-                      <p className={`font-inter text-body-md leading-relaxed ${
-                        service.premium ? 'text-zinc-400' : 'text-zinc-500'
-                      }`}>
-                        {service.description}
-                      </p>
-                    </div>
-
-                    {/* Grille de prix */}
-                    <div className="md:w-80 shrink-0">
-                      <div className="grid grid-cols-2 gap-4">
-                        {service.options.map((opt) => (
-                          <a
-                            key={opt.label}
-                            href={PLANITY_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`group rounded-[24px] p-5 text-center transition-all duration-300 cursor-pointer ${
-                              service.premium
-                                ? 'bg-zinc-800 hover:bg-[#F54927]'
-                                : 'bg-white hover:bg-[#F54927]'
-                            }`}
-                          >
-                            <p className="font-inter text-xs text-zinc-400 uppercase tracking-widest mb-2 group-hover:text-white/80 transition-colors">
-                              {opt.label}
-                            </p>
-                            <p className="font-space-grotesk text-3xl font-bold text-[#F54927] group-hover:text-white transition-colors">
-                              {opt.price}
-                            </p>
-                            <p className="font-inter text-xs text-zinc-400 mt-1 group-hover:text-white/70 transition-colors">
-                              {opt.duration}
-                            </p>
-                          </a>
-                        ))}
                       </div>
-                    </div>
 
+                      {/* Grille de prix */}
+                      <div className="md:w-80 shrink-0">
+                        <div className="grid grid-cols-2 gap-4">
+                          {service.options.map((opt) => (
+                            <a
+                              key={opt.label}
+                              href={PLANITY_URL}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group bg-[#FFF7F2] rounded-[24px] p-5 text-center hover:bg-[#F54927] transition-all duration-300 cursor-pointer"
+                            >
+                              <p className="font-inter text-xs text-zinc-400 uppercase tracking-widest mb-2 group-hover:text-white/80 transition-colors">
+                                {opt.label}
+                              </p>
+                              <p className="font-space-grotesk text-3xl font-bold text-[#F54927] group-hover:text-white transition-colors">
+                                {opt.price}
+                              </p>
+                              <p className="font-inter text-xs text-zinc-400 mt-1 group-hover:text-white/70 transition-colors">
+                                {opt.duration}
+                              </p>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </section>
 
