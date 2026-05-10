@@ -5,9 +5,9 @@ const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-inline' 'unsafe-eval';
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-  img-src 'self' data: blob: https://lh3.googleusercontent.com;
+  img-src 'self' data: blob: https://lh3.googleusercontent.com https://*.public.blob.vercel-storage.com;
   frame-src https://www.google.com;
-  connect-src 'self' https://maps.googleapis.com;
+  connect-src 'self' https://maps.googleapis.com https://*.public.blob.vercel-storage.com;
   frame-ancestors 'self';
 `.replace(/\n/g, ' ')
 
@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
         pathname: '/aida-public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
       },
     ],
   },

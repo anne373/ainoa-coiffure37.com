@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/head-spa',   label: 'Head SPA',  section: null },
   { href: '/#creations', label: 'Créations', section: 'creations' },
   { href: '/#contact',   label: 'Contact',   section: 'contact' },
+  { href: '/blog',       label: 'Blog',      section: null },
 ]
 
 export default function Header() {
@@ -21,6 +22,7 @@ export default function Header() {
 
   const isActive = (href: string) => {
     if (href === '/head-spa') return pathname === '/head-spa'
+    if (href === '/blog') return pathname.startsWith('/blog')
     return pathname === '/' && href === '/'
   }
 
