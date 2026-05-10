@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && prisma migrate deploy && next build",
+    "build": "prisma generate && next build",
+    "migrate": "prisma migrate deploy",
     "build:local": "next build",
     "start": "next start",
     "seed": "node --loader ts-node/esm prisma/seed.ts"
