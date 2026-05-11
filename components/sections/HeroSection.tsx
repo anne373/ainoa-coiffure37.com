@@ -45,7 +45,7 @@ export default function HeroSection() {
               alt={slide.alt}
               fill
               priority={i === 0}
-              className="object-contain"
+              className="object-contain rounded-[48px]"
               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 32px), 1280px"
             />
           </div>
