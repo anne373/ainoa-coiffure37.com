@@ -45,6 +45,7 @@ export default function HeroSection() {
               alt={slide.alt}
               fill
               priority={i === 0}
+              loading={i === 0 ? 'eager' : 'lazy'}
               className="object-cover"
               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 32px), 1280px"
             />
