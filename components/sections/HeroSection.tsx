@@ -30,7 +30,7 @@ export default function HeroSection() {
     <section id="accueil" className="mt-4 mx-4">
 
       {/* Carousel */}
-      <div className="relative h-[280px] sm:h-[400px] md:h-[520px] lg:h-[616px] w-full overflow-hidden rounded-[48px]">
+      <div className="relative w-full overflow-hidden rounded-[48px] bg-[#FFF7F2]" style={{ aspectRatio: '5/3' }}>
 
         {/* Slides en fade */}
         {slides.map((slide, i) => (
@@ -45,7 +45,7 @@ export default function HeroSection() {
               alt={slide.alt}
               fill
               priority={i === 0}
-              className="object-cover"
+              className="object-contain"
               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 32px), 1280px"
             />
           </div>
