@@ -65,7 +65,7 @@ const col3 = testimonials.slice(6, 9);
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-12 md:py-[80px] bg-[#FFF7F2] overflow-hidden">
+    <section id="avis" className="py-12 md:py-[80px] bg-[#FFF7F2] overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-8">
 
         <div className="mb-10 md:mb-14">

@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/head-spa',   label: 'Head SPA',  section: null },
   { href: '/#creations', label: 'Créations', section: 'creations' },
   { href: '/#contact',   label: 'Contact',   section: 'contact' },
+  { href: '/#avis',      label: 'Avis',      section: 'avis' },
   { href: '/blog',       label: 'Blog',      section: null },
 ]
 
