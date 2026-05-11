@@ -30,7 +30,7 @@ export default function HeroSection() {
     <section id="accueil" className="mt-4 mx-4">
 
       {/* Carousel */}
-      <div className="relative w-full overflow-hidden rounded-[48px] bg-[#FFF7F2]" style={{ aspectRatio: '5/3' }}>
+      <div className="relative h-[280px] sm:h-[400px] md:h-[520px] lg:h-[616px] w-full overflow-hidden rounded-[48px] bg-[#FFF7F2]">
 
         {/* Slides en fade */}
         {slides.map((slide, i) => (
