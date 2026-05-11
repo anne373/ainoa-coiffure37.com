@@ -39,6 +39,7 @@ export default function LocalBusinessSchema() {
       business.social.planity,
       business.social.googleBusiness,
     ],
+    image: `${business.url}/images/hero/hero-ainoa.png`,
     description: business.description,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
