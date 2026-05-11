@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Suspense } from 'react'
 
 function LoginForm() {
@@ -40,13 +41,15 @@ function LoginForm() {
     <div className="min-h-screen bg-[#FFF7F2] flex items-center justify-center px-6">
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
-          <Image
-            src="/images/logo-ainoa.png"
-            alt="Ainoa Coiffure"
-            width={160}
-            height={52}
-            className="mix-blend-multiply mx-auto mb-6"
-          />
+          <Link href="/">
+            <Image
+              src="/images/logo-ainoa.png"
+              alt="Ainoa Coiffure"
+              width={160}
+              height={52}
+              className="mix-blend-multiply mx-auto mb-6 hover:opacity-80 transition-opacity"
+            />
+          </Link>
           <h1 className="font-space-grotesk text-h2 text-[#1a1c1c]">Administration</h1>
           <p className="font-inter text-body-md text-[#5f5e5e] mt-2">Blog Ainoa Coiffure</p>
         </div>
