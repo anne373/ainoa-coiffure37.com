@@ -9,6 +9,7 @@ import HairSpaSection from '@/components/sections/HairSpaSection'
 import PortfolioSection from '@/components/sections/PortfolioSection'
 import ContactSection from '@/components/sections/ContactSection'
 import LocationSection from '@/components/sections/LocationSection'
+import TestimonialsSection from '@/components/sections/TestimonialsSection'
 
 export const metadata: Metadata = {
   title: 'Ainoa Coiffure | Salon de coiffure Saint-Cyr-sur-Loire',
@@ -33,6 +34,7 @@ export default function Home() {
         <PortfolioSection />
         <ContactSection />
         <LocationSection />
+        <TestimonialsSection />
       </main>
       <Footer />
     </>
