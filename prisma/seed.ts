@@ -1,3 +1,10 @@
+import { config } from 'dotenv'
+import { resolve } from 'path'
+
+// Charge .env.local avant tout le reste
+config({ path: resolve(process.cwd(), '.env.local') })
+config({ path: resolve(process.cwd(), '.env') })
+
 import { PrismaClient } from '../lib/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import bcrypt from 'bcryptjs'
