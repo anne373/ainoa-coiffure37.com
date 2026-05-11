@@ -120,124 +120,114 @@ export default function HeadSpaPage() {
 
         {/* Cartes de soins */}
         <section className="pb-[120px] max-w-[1280px] mx-auto px-8">
-          <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             {services.map((service, index) => {
               const isSignature = service.tag === 'Signature'
 
               const icons = [
-                /* Essentiel — feuille */
                 <svg key="leaf" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2l3.09-3.09A1 1 0 0 0 16.38.3L12 5 9 2 6 5l3 3-6 1 2 3 5-1-2 4 3 2 1-5 5 3c-1-3 0-7 0-7z"/></svg>,
-                /* Profond — goutte */
                 <svg key="drop" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7" aria-hidden="true"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"/></svg>,
-                /* Signature — couronne */
                 <svg key="crown" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7" aria-hidden="true"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>,
               ]
 
               return (
                 <div
                   key={service.name}
-                  className={`relative rounded-[40px] transition-transform duration-300 hover:-translate-y-1 ${service.aura} ${
+                  className={`relative flex flex-col rounded-[40px] transition-transform duration-300 hover:-translate-y-2 ${service.aura} ${
                     isSignature
                       ? 'bg-zinc-900 border-2 border-[#F54927]/50'
                       : 'bg-white border border-zinc-100'
                   }`}
                 >
-                  {/* Badge populaire */}
-                  {isSignature && (
-                    <div className="flex justify-center pt-5">
+                  {/* Badge */}
+                  <div className="h-8 flex items-center justify-center mt-4">
+                    {isSignature && (
                       <span className="bg-[#F54927] text-white text-[10px] font-inter font-bold tracking-[0.2em] uppercase px-5 py-2 rounded-full">
                         LE PLUS COMPLET
                       </span>
-                    </div>
-                  )}
+                    )}
+                  </div>
 
-                  <div className="p-10 md:p-12">
-                    <div className="flex flex-col md:flex-row md:items-center gap-10">
+                  <div className="flex flex-col flex-1 p-8 pt-4 gap-6">
 
-                      {/* Gauche — icône + tag + nom + étapes */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 ${
-                            isSignature ? 'bg-[#F54927] text-white' : 'bg-[#FFF7F2] text-[#F54927]'
-                          }`}>
-                            {icons[index]}
-                          </div>
-                          <div>
-                            <span className={`inline-block text-[10px] font-inter font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full ${
-                              isSignature ? 'bg-white/10 text-zinc-300' : 'bg-zinc-100 text-zinc-500'
-                            }`}>
-                              {service.tag}
-                            </span>
-                            <h3 className={`text-[20px] sm:text-[24px] font-space-grotesk font-semibold uppercase mt-1 ${
-                              isSignature ? 'text-white' : 'text-zinc-900'
-                            }`}>
-                              {service.name}
-                            </h3>
-                          </div>
-                        </div>
-
-                        {service.note && (
-                          <p className="font-inter text-sm text-[#F54927] italic mb-4">
-                            {service.note}
-                          </p>
-                        )}
-
-                        <ul className="space-y-2.5">
-                          {service.description.split(' · ').map((feat) => (
-                            <li key={feat} className="flex items-start gap-3">
-                              <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#F54927]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                              </svg>
-                              <span className={`font-inter text-sm capitalize ${isSignature ? 'text-zinc-300' : 'text-zinc-600'}`}>
-                                {feat.trim()}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                    {/* Icône centrée */}
+                    <div className="flex flex-col items-center text-center gap-3">
+                      <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
+                        isSignature ? 'bg-[#F54927] text-white' : 'bg-[#FFF7F2] text-[#F54927]'
+                      }`}>
+                        {icons[index]}
                       </div>
+                      <span className={`text-[10px] font-inter font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full ${
+                        isSignature ? 'bg-white/10 text-zinc-300' : 'bg-zinc-100 text-zinc-500'
+                      }`}>
+                        {service.tag}
+                      </span>
+                      <h3 className={`text-[20px] font-space-grotesk font-semibold uppercase ${
+                        isSignature ? 'text-white' : 'text-zinc-900'
+                      }`}>
+                        {service.name}
+                      </h3>
+                    </div>
 
-                      {/* Droite — prix + CTA */}
-                      <div className="md:w-72 shrink-0 flex flex-col gap-3">
-                        {service.options.map((opt) => (
-                          <div
-                            key={opt.label}
-                            className={`rounded-[20px] px-6 py-5 ${
-                              isSignature ? 'bg-white/10' : 'bg-[#FFF7F2]'
-                            }`}
-                          >
-                            <p className={`font-inter text-[10px] uppercase tracking-widest mb-1 ${
-                              isSignature ? 'text-zinc-400' : 'text-zinc-400'
-                            }`}>
-                              {opt.label}
-                            </p>
-                            <div className="flex items-baseline gap-3">
-                              <p className={`font-space-grotesk text-4xl font-bold ${
-                                isSignature ? 'text-white' : 'text-[#F54927]'
-                              }`}>
-                                {opt.price}
-                              </p>
-                              <p className={`font-inter text-xs ${isSignature ? 'text-zinc-400' : 'text-zinc-400'}`}>
-                                {opt.duration}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-
-                        <a
-                          href={PLANITY_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`mt-1 text-center px-8 py-4 rounded-full font-inter text-[10px] tracking-widest uppercase transition-all ${
-                            isSignature
-                              ? 'bg-[#F54927] text-white hover:bg-white hover:text-zinc-900'
-                              : 'bg-[#F54927] text-white hover:bg-zinc-900'
+                    {/* Prix */}
+                    <div className="flex flex-col gap-3">
+                      {service.options.map((opt) => (
+                        <div
+                          key={opt.label}
+                          className={`rounded-[20px] px-5 py-4 ${
+                            isSignature ? 'bg-white/10' : 'bg-[#FFF7F2]'
                           }`}
                         >
-                          Réserver ce soin
-                        </a>
-                      </div>
-
+                          <p className="font-inter text-[10px] uppercase tracking-widest text-zinc-400 mb-1">
+                            {opt.label}
+                          </p>
+                          <div className="flex items-baseline gap-2">
+                            <p className={`font-space-grotesk text-3xl font-bold ${
+                              isSignature ? 'text-white' : 'text-[#F54927]'
+                            }`}>
+                              {opt.price}
+                            </p>
+                            <p className="font-inter text-xs text-zinc-400">{opt.duration}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
+
+                    {/* Features */}
+                    <div className="flex-1">
+                      {service.note && (
+                        <p className="font-inter text-xs text-[#F54927] italic mb-3">
+                          {service.note}
+                        </p>
+                      )}
+                      <ul className="space-y-2">
+                        {service.description.split(' · ').map((feat) => (
+                          <li key={feat} className="flex items-start gap-2.5">
+                            <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#F54927]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                            </svg>
+                            <span className={`font-inter text-sm capitalize ${isSignature ? 'text-zinc-300' : 'text-zinc-600'}`}>
+                              {feat.trim()}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* CTA */}
+                    <a
+                      href={PLANITY_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-center w-full py-4 rounded-full font-inter text-[10px] tracking-widest uppercase transition-all ${
+                        isSignature
+                          ? 'bg-[#F54927] text-white hover:bg-white hover:text-zinc-900'
+                          : 'bg-[#F54927] text-white hover:bg-zinc-900'
+                      }`}
+                    >
+                      Réserver ce soin
+                    </a>
+
                   </div>
                 </div>
               )
