@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { prisma } from '@/lib/prisma'
 import { PostList } from '@/components/blog/PostList'
 import { Pagination } from '@/components/blog/Pagination'
@@ -56,7 +58,9 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const totalPages = Math.ceil(total / POSTS_PER_PAGE)
 
   return (
-    <main className="pt-28 pb-20 px-6 lg:px-8 max-w-[1280px] mx-auto">
+    <>
+      <Header />
+      <main className="pt-28 pb-20 px-6 lg:px-8 max-w-[1280px] mx-auto">
       <div className="mb-12">
         <p className="font-inter text-label-caps text-[#F54927] uppercase tracking-widest mb-3">
           Catégorie
@@ -76,5 +80,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         basePath={`/categories/${slug}`}
       />
     </main>
+      <Footer />
+    </>
   )
 }

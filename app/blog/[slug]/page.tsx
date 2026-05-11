@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { prisma } from '@/lib/prisma'
 import { MarkdownContent } from '@/components/blog/MarkdownContent'
 import { CommentList } from '@/components/blog/CommentList'
@@ -61,7 +63,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   if (!post) notFound()
 
   return (
-    <main className="pt-28 pb-20 px-6 lg:px-8 max-w-[1280px] mx-auto">
+    <>
+      <Header />
+      <main className="pt-28 pb-20 px-6 lg:px-8 max-w-[1280px] mx-auto">
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}
@@ -128,5 +132,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </section>
       </div>
     </main>
+      <Footer />
+    </>
   )
 }

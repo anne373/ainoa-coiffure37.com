@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { prisma } from '@/lib/prisma'
 import { PostList } from '@/components/blog/PostList'
 import { Pagination } from '@/components/blog/Pagination'
 import { POSTS_PER_PAGE } from '@/lib/constants'
 import { PostSummary } from '@/types/blog'
+import Link from 'next/link'
 
 interface BlogPageProps {
   searchParams: Promise<{ page?: string }>
@@ -44,21 +47,33 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const totalPages = Math.ceil(total / POSTS_PER_PAGE)
 
   return (
-    <main className="pt-28 pb-20 px-6 lg:px-8 max-w-[1280px] mx-auto">
-      <div className="mb-12">
-        <p className="font-inter text-label-caps text-[#F54927] uppercase tracking-widest mb-3">
-          Journal
-        </p>
-        <h1 className="font-space-grotesk text-h1 text-[#1a1c1c] leading-tight">
-          Notre blog
-        </h1>
-        <p className="font-inter text-body-lg text-[#5f5e5e] mt-4 max-w-xl">
-          Conseils, tendances et actualités du salon Ainoa Coiffure.
-        </p>
-      </div>
+    <>
+      <Header />
+      <main className="pt-28 pb-20 px-6 lg:px-8 max-w-[1280px] mx-auto">
+        <div className="mb-12">
+          <p className="font-inter text-label-caps text-[#F54927] uppercase tracking-widest mb-3">
+            Journal
+          </p>
+          <h1 className="font-space-grotesk text-h1 text-[#1a1c1c] leading-tight">
+            Notre blog
+          </h1>
+          <p className="font-inter text-body-lg text-[#5f5e5e] mt-4 max-w-xl">
+            Conseils, tendances et actualités du salon Ainoa Coiffure.
+          </p>
+        </div>
 
-      <PostList posts={posts as PostSummary[]} />
-      <Pagination page={page} totalPages={totalPages} />
-    </main>
+        <PostList posts={posts as PostSummary[]} />
+        <Pagination page={page} totalPages={totalPages} />
+      </main>
+      <Footer />
+      <div className="text-center pb-6">
+        <Link
+          href="/admin"
+          className="font-inter text-label-caps text-[#e2e2e2] hover:text-[#906f69] uppercase transition-colors"
+        >
+          Admin
+        </Link>
+      </div>
+    </>
   )
 }
