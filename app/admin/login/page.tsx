@@ -11,6 +11,7 @@ function LoginForm() {
   const searchParams = useSearchParams()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -79,14 +80,26 @@ function LoginForm() {
             <label className="block font-inter text-label-caps text-[#5f5e5e] uppercase mb-2">
               Mot de passe
             </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="current-password"
-              className="w-full border border-[#e2e2e2] rounded-full px-5 py-3 font-inter text-[#1a1c1c] focus:outline-none focus:border-[#F54927] bg-[#FFF7F2]"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoComplete="current-password"
+                className="w-full border border-[#e2e2e2] rounded-full px-5 py-3 pr-12 font-inter text-[#1a1c1c] focus:outline-none focus:border-[#F54927] bg-[#FFF7F2]"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#906f69] hover:text-[#F54927] transition-colors"
+                aria-label={showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+              >
+                <span className="material-symbols-outlined text-[20px]">
+                  {showPassword ? 'visibility_off' : 'visibility'}
+                </span>
+              </button>
+            </div>
           </div>
 
           <button
