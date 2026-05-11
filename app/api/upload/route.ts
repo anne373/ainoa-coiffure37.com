@@ -22,7 +22,15 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: 'Fichier trop lourd (5 Mo max)' }, { status: 400 })
   }
 
-  const blob = await put(`covers/${Date.now()}-${file.name}`, file, { access: 'public' })
-
-  return NextResponse.json({ url: blob.url })
+  try {
+    const blob = await put(`covers/${Date.now()}-${file.name}`, file, {
+      access: 'public',
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    })
+    return NextResponse.json({ url: blob.url })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Erreur inconnue'
+    console.error('Blob upload error:', message)
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
 }
